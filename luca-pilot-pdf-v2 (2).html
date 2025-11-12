@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUCA Winter 2026 Reading Pilot - Free NewSchools Grant Program</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --luca-navy: #2A2564;
+            --luca-gold: #FFB71B;
+            --spark-blue: #00AEEF;
+            --electric-purple: #7F56D9;
+            --coral-ember: #F46A4E;
+            --titanium-silver: #C4C4C4;
+            --infra-black: #1B2733;
+        }
+
+        @page {
+            size: 8.5in 11in;
+            margin: 0.5in;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--infra-black);
+            line-height: 1.5;
+            background: #ffffff;
+        }
+
+        .pdf-page {
+            height: 10in;
+            page-break-after: always;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pdf-page:last-child {
+            page-break-after: auto;
+        }
+
+        .container {
+            max-width: 7.5in;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Page 1 - Hero */
+        .page-1 {
+            background: linear-gradient(135deg, var(--luca-navy) 0%, #1a1642 100%);
+            color: white;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--luca-gold);
+            color: var(--luca-navy);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .page-1 h1 {
+            background: linear-gradient(135deg, white 0%, var(--luca-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--luca-navy);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--spark-blue);
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+
+        .subheadline {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .highlight-box {
+            background: rgba(255, 183, 27, 0.15);
+            border-left: 4px solid var(--luca-gold);
+            padding: 20px;
+            margin: 24px 0;
+            border-radius: 8px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--luca-gold);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .trust-icon {
+            width: 18px;
+            height: 18px;
+            background: var(--luca-gold);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: var(--luca-navy);
+        }
+
+        /* Page 2 - Features */
+        .page-2 {
+            background: linear-gradient(to bottom, #f8f9fb 0%, #ffffff 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--spark-blue);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 24px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(42, 37, 100, 0.08);
+            border-top: 3px solid var(--luca-gold);
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--luca-navy);
+            margin-bottom: 10px;
+        }
+
+        .feature-description {
+            font-size: 14px;
+            color: var(--infra-black);
+            line-height: 1.5;
+        }
+
+        .mechanism-box {
+            background: linear-gradient(135deg, var(--luca-navy), #1a1642);
+            color: white;
+            padding: 28px;
+            border-radius: 10px;
+            margin: 28px 0;
+        }
+
+        .mechanism-box h3 {
+            color: var(--luca-gold);
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .mechanism-box p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Page 3 - Timeline */
+        .timeline {
+            background: white;
+            padding: 28px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(42, 37, 100, 0.08);
+            margin: 28px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 44px;
+            width: 2px;
+            height: calc(100% + 4px);
+            background: var(--titanium-silver);
+        }
+
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--spark-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 18px;
+            flex-shrink: 0;
+            z-index: 1;
+        }
+
+        .timeline-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--luca-navy);
+            margin-bottom: 6px;
+        }
+
+        .timeline-content p {
+            font-size: 14px;
+            color: var(--infra-black);
+            line-height: 1.5;
+        }
+
+        /* Page 4 - Benefits */
+        .page-4 {
+            background: linear-gradient(to bottom, #ffffff 0%, #f8f9fb 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 28px 0;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 24px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(42, 37, 100, 0.08);
+            border-left: 3px solid var(--coral-ember);
+        }
+
+        .benefit-card h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--luca-navy);
+            margin-bottom: 10px;
+        }
+
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefit-list li {
+            padding: 6px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 13px;
+            color: var(--infra-black);
+        }
+
+        .benefit-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--coral-ember);
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        .guarantee-box {
+            background: linear-gradient(135deg, var(--electric-purple), #6b46c1);
+            color: white;
+            padding: 28px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 24px 0;
+            box-shadow: 0 6px 24px rgba(127, 86, 217, 0.3);
+        }
+
+        .guarantee-box h3 {
+            color: white;
+            font-size: 22px;
+            margin-bottom: 14px;
+        }
+
+        .guarantee-box p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Page 5 - CTA */
+        .page-5 {
+            background: linear-gradient(to bottom, #f8f9fb 0%, #ffffff 100%);
+        }
+
+        .urgency-box {
+            background: var(--coral-ember);
+            color: white;
+            padding: 28px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 28px 0;
+        }
+
+        .urgency-box h3 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 14px;
+        }
+
+        .countdown {
+            font-size: 40px;
+            font-weight: 800;
+            margin: 18px 0;
+            color: white;
+        }
+
+        .urgency-box p {
+            font-size: 16px;
+        }
+
+        .final-cta {
+            background: var(--luca-navy);
+            padding: 36px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 28px 0;
+        }
+
+        .final-cta h2 {
+            color: white;
+            margin-bottom: 18px;
+        }
+
+        .final-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 17px;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--luca-gold);
+            color: var(--luca-navy);
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            background: var(--luca-navy);
+            color: white;
+            font-size: 13px;
+            margin-top: 28px;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        footer p:last-child {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .pdf-page {
+                page-break-after: always;
+            }
+            .pdf-page:last-child {
+                page-break-after: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: HERO & VALUE PROPOSITION -->
+<div class="pdf-page page-1">
+    <div class="container">
+        <div class="logo">
+            <img src="data:image/webp;base64,UklGRnIUAABXRUJQVlA4WAoAAAAgAAAAxwAAxwAASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZWUDgghBIAALBKAJ0BKsgAyAA+USaQRSOiIZRLNQA4BQSm7hb9EHlDuyd9/JH2Xqv/Y/wD+WXyj/wHZV1V5Wflv6n/qv7n+7P+Q+cn+o9TX55/1XuAfqn/pf7h+6Xaa8wv68fsH7vnon/tnqHfzT+5//LsTf209hD9wPTS/cL4eP21/af2j//XmtPbB/d+kF9He3XKoia/Hvtt+3/un7b/Jv9v7xfkRqF/i/85/0H5gcDEAH6kf6r+7eyP8L5mfZD/i+4B+WvlXeEl5d+pPwCfzb+v/+H2iv67/2/6D0JfSv/t/zfwKfzj+3/9bsg/tv7SH7VF9oicGhHdnsapW0RODQjuz2NUraIjtt8mEpVVQ7zJ4XCJL7QUNSvtyt1Tg6MZK2rvXOFGl0Mbs4t1M1q1WnIwaabIFh0B0+Rf27q8TVNojSq81F00j/ppCnN3j5t9UaEB1/9ryjTS7BQHDliypneAu1/olJf65NXqaWlCLuaYkxXY1sDK9vmozZ2YJ0u0ycaCgRUUee9JE2HOxstErjFDYPKAr8YdB49tETsQiBdqb6HiNhmjFmLrEpZqJAfJW++xYTey5+c5ODMvry4WGe4oA8B5JimRUrogMURWUekbV/rH4
+
+        <div style="text-align: center;">
+            <div class="hero-badge">NewSchools-Funded Grant Program</div>
+        </div>
+        
+        <h1 style="text-align: center;">Free Reading Pilot for Grades 3-8</h1>
+        
+        <div class="subheadline" style="text-align: center;">
+            Achieve <strong>+6-10 points accuracy</strong> and <strong>+15-20 WCPM gains</strong> in just 16 weeks. Only 7 schools will be accepted.
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">+6-10</span>
+                <span class="stat-label">Points Accuracy</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">+15-20</span>
+                <span class="stat-label">WCPM Increase</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">16</span>
+                <span class="stat-label">Weeks</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">60</span>
+                <span class="stat-label">Minutes/Week</span>
+            </div>
+        </div>
+
+        <div class="trust-badges" style="justify-content: center;">
+            <div class="trust-badge">
+                <span class="trust-icon">✓</span>
+                Grant-Backed by NewSchools
+            </div>
+            <div class="trust-badge">
+                <span class="trust-icon">✓</span>
+                Innovative AI Technology
+            </div>
+            <div class="trust-badge">
+                <span class="trust-icon">✓</span>
+                Starts January 12, 2026
+            </div>
+            <div class="trust-badge">
+                <span class="trust-icon">✓</span>
+                Apply by December 1, 2025
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h3 style="color: var(--luca-gold); margin-bottom: 10px;">No Cost. Measured Outcomes. District-Ready.</h3>
+            <p style="color: white; font-size: 15px;">
+                This limited pilot program offers your school free access to LUCA's AI Reading platform, comprehensive support, and measurable impact reporting—all funded by NewSchools Venture Fund.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 2: WHY LUCA WORKS -->
+<div class="pdf-page page-2">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-subtitle">PROVEN TECHNOLOGY</p>
+            <h2>Why LUCA Works</h2>
+            <p style="max-width: 600px; margin: 0 auto; font-size: 16px; color: var(--infra-black);">
+                LUCA combines cutting-edge AI with research-backed phonics instruction to deliver instant, personalized feedback that accelerates reading development.
+            </p>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📖</div>
+                <h3 class="feature-title">StoryGen</h3>
+                <p class="feature-description">
+                    Personalized, phonics-aligned stories that adapt to each student's reading level and interests, ensuring engagement and targeted practice.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎓</div>
+                <h3 class="feature-title">LessonGen</h3>
+                <p class="feature-description">
+                    Adaptive, research-backed phonics lessons that respond to student performance in real-time, focusing instruction where it's needed most.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎤</div>
+                <h3 class="feature-title">SoundScout</h3>
+                <p class="feature-description">
+                    Child-tuned speech recognition (ASR) technology that provides instant, accurate feedback on pronunciation and reading accuracy.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">EducatorHub</h3>
+                <p class="feature-description">
+                    Real-time progress monitoring, automatic grouping recommendations, and standards alignment to support data-driven instruction.
+                </p>
+            </div>
+        </div>
+
+        <div class="mechanism-box">
+            <h3>The Science Behind the Results</h3>
+            <p>
+                LUCA is backed by 4 years of dedicated work from Carnegie Mellon University and decades of established reading research. Our approach combines instant accuracy feedback with targeted phonics practice, reinforcing proper reading patterns while building fluency. This evidence-based continuous feedback loop accelerates skill development far beyond traditional instruction.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 3: THE 16-WEEK PILOT JOURNEY -->
+<div class="pdf-page page-3">
+    <div class="container">
+        <h2 style="margin-bottom: 28px; text-align: center;">The 16-Week Pilot Journey</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-icon">1</div>
+                <div class="timeline-content">
+                    <h4>Screen (Baseline Week of January 19)</h4>
+                    <p>Comprehensive assessment of current reading levels to establish baseline metrics for accuracy, fluency (WCPM), and phonics skills.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">2</div>
+                <div class="timeline-content">
+                    <h4>Teach + Adapt (Weeks 2-15)</h4>
+                    <p>Students engage with LUCA for ≥60 minutes per week at school or home. AI adapts lessons based on real-time performance, targeting individual learning gaps.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">3</div>
+                <div class="timeline-content">
+                    <h4>Monitor (Interim Assessments Week of March 9/16)</h4>
+                    <p>Mid-program assessment to track progress, adjust instruction, and ensure students are on track to meet growth targets.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">4</div>
+                <div class="timeline-content">
+                    <h4>Verify (Final Week of May 4)</h4>
+                    <p>Comprehensive final assessment measuring gains in accuracy, fluency, and reading ladder movement. Complete impact report delivered to school leadership.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="background: rgba(0, 174, 239, 0.1); border-left-color: var(--spark-blue);">
+            <h4 style="color: var(--spark-blue); font-size: 18px; margin-bottom: 10px;">Student Usage Requirement</h4>
+            <p style="font-size: 14px;">
+                Students should complete ≥60 minutes per week of LUCA activities, either during school hours or at home. This flexible approach ensures consistent practice without disrupting existing schedules.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 4: BENEFITS & GUARANTEE -->
+<div class="pdf-page page-4">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-subtitle">COMPREHENSIVE SUPPORT</p>
+            <h2>What Selected Schools Receive</h2>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h4>Full LUCA Platform Access</h4>
+                <ul class="benefit-list">
+                    <li>16 weeks of complete platform access</li>
+                    <li>All StoryGen, LessonGen, and SoundScout features</li>
+                    <li>EducatorHub with real-time analytics</li>
+                    <li>Unlimited student licenses for pilot cohort</li>
+                </ul>
+            </div>
+
+            <div class="benefit-card">
+                <h4>Professional Support</h4>
+                <ul class="benefit-list">
+                    <li>1-2 hour comprehensive onboarding</li>
+                    <li>Monthly check-in sessions with LUCA team</li>
+                    <li>Dedicated support for technical questions</li>
+                    <li>Best practices sharing and guidance</li>
+                </ul>
+            </div>
+
+            <div class="benefit-card">
+                <h4>Measurement & Reporting</h4>
+                <ul class="benefit-list">
+                    <li>Baseline, interim, and final assessments</li>
+                    <li>Comprehensive impact report</li>
+                    <li>Individual student progress tracking</li>
+                    <li>Comparison to national benchmarks</li>
+                </ul>
+            </div>
+
+            <div class="benefit-card">
+                <h4>Future Partnership Benefits</h4>
+                <ul class="benefit-list">
+                    <li>Preferred-partner pricing for 2026-27</li>
+                    <li>Priority access to new features</li>
+                    <li>Case study collaboration opportunity</li>
+                    <li>Continued support relationship</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="guarantee-box">
+            <h3>Our Results Guarantee</h3>
+            <p>
+                If students who meet usage targets show <strong>no measurable accuracy or fluency gains by week 16</strong>, we will extend LUCA access <strong>free through Summer 2026</strong> and deliver a targeted intervention plan customized to your students' needs.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 5: CTA & FOOTER -->
+<div class="pdf-page page-5">
+    <div class="container">
+        <div class="urgency-box">
+            <h3>Only 7 Schools Will Be Selected</h3>
+            <div class="countdown">Apply by December 1, 2025</div>
+            <p style="font-size: 16px; margin-top: 16px;">
+                Applications close at 11:59 PM EST. Decisions announced December 10. Program kickoff mid December.
+            </p>
+        </div>
+
+        <div class="final-cta">
+            <h2>Ready to Transform Reading Instruction?</h2>
+            <p>Join 7 committed new schools pioneering innovative technology. No cost, measurable results, district-ready implementation.</p>
+            <div style="margin-top: 24px;">
+                <a href="#apply" class="btn btn-primary">Secure Your Spot</a>
+            </div>
+            <p style="font-size: 13px; margin-top: 20px; color: rgba(255, 255, 255, 0.7);">
+                Questions? Email pilot@luca.ai or schedule a 15-minute info call
+            </p>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 LUCA. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 11px; color: rgba(255, 255, 255, 0.7);">
+                This pilot program is made possible through generous grant funding from NewSchools Venture Fund
+            </p>
+        </footer>
+    </div>
+</div>
+
+</body>
+</html>
